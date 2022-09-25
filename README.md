@@ -8,5 +8,5 @@ A PowerShell Module with tools for gathering data and creating reports on each a
 # Get-M365TeamsChannelReport
 # Get-M365TeamsReport
 # Get-M365TeamsUsageReport
-# Get-M365TUserPrincipalGroups
+# Get-M365UserPrincipalGroups
 # Set-M365AdminReportSettings
