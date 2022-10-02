@@ -28,7 +28,11 @@
 	RequiredModules      = @(
 		'ImportExcel'
 		'Microsoft.Online.Sharepoint.PowerShell'
-		#'Microsoft.Graph'
+		'Microsoft.Graph.Authentication'
+		'Microsoft.Graph.Applications'
+		'Microsoft.Graph.Groups'
+		'Microsoft.Graph.Teams'		
+		'Microsoft.Graph.Users'
 		'ExchangeOnlineManagement'
 	)
 
