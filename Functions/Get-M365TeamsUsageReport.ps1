@@ -4,6 +4,8 @@ function Get-M365TeamsUsageReport{
 		[ValidateSet('D30', 'D90', 'D180')]
 		$Period
 	)
+	$RequiredScopes = 'Reports.Read.All'
+	Set-M365MGGraphConnectionScopes -RequiredScopes $RequiredScopes
 	try
 	{
 		$tempfile = New-TemporaryFile

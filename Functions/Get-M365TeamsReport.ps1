@@ -1,5 +1,8 @@
 function Get-M365TeamsReport 
 {
+    $RequiredScopes = @('Team.ReadBasic.All','TeamMember.Read.All')
+    Set-M365MGGraphConnectionScopes -RequiredScopes $RequiredScopes
+    Select-MgProfile beta
     $Teams = Get-MgTeam -All
     $TeamsReport = [System.Collections.Generic.List[PsObject]]::new()
     $i = 1
@@ -16,4 +19,5 @@ function Get-M365TeamsReport
                 'Members' = $TeamMembers.AdditionalProperties.email -join ' ; '
             })
     }
+    return $TeamsReport
 }
