@@ -2,7 +2,6 @@
 A PowerShell Module with tools for gathering data and creating reports on each are of M365 services. 
 * Note: This is a work in progress
 
-## Export-M365MailBoxReport
 ## Get-M365GroupReport
 ## Get-M365MailboxReport
 ## Get-M365SSOEnterpriseApps
