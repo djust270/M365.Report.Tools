@@ -5,7 +5,8 @@ function Get-M365MailboxReport
         [Switch]$ResourceOnly,
         [Switch]$UserOnly,
         [Switch]$All,
-        [Switch]$IncludeMailboxSize
+        [Switch]$IncludeMailboxSize,
+        [String[]]$AddProperties
 	)
 	if ($SharedOnly){
         $mailboxes = Get-Mailbox -Filter { isShared -eq 'true' }
@@ -17,16 +18,22 @@ function Get-M365MailboxReport
         $mailboxes = Get-Mailbox -Filter { (isShared -eq 'false') -and (isResource -eq 'false') }
     }
 	$i = 1
-	$MailboxDetails = foreach ($box in $mailboxes)
+    $MailboxDetails = [System.Collections.Generic.List[PsObject]]::new()
+    foreach ($box in $mailboxes)
 	{
 		if ($box.isResource){$type = 'Resource'}
         if ($box.isShared){$type = 'Shared'}
         if (-not $box.isResource -and -not $box.isShared){$type = 'User'}
         Write-Progress -Activity "Processing Mailbox Report" -Status "Working on $($box.displayname)" -PercentComplete (($i / $mailboxes.Count) * 100)		
-		$box | Select-Object Identity, Displayname, PrimarySMTPAddress, @{
+		$SingleMailboxDetails = $box | Select-Object Identity, Displayname, PrimarySMTPAddress, @{
             n = 'EmailAddresses'; e = { ($_.EmailAddresses -join ' , ') }},HiddenFromAddressListsEnabled,@{
                 n = 'GrantSendOnBehalfTo'; e = { ($_.GrantSendOnBehalfTo -join ' , ') }},@{ 
                         n = 'Type' ; e={$type}}
+        foreach ($NewProp in $AddProperties){
+            Write-Progress -Activity "Adding Additional Properties" -Status "Working on $NewProp for mailbox $($box.displayname)"
+            $SingleMailboxDetails | Add-Member -MemberType NoteProperty -Name $NewProp -Value ($box | Select-Object -ExpandProperty $NewProp)
+        }
+        $MailboxDetails.Add($SingleMailboxDetails)       
         $i++
     }
     $i = 1

@@ -3,7 +3,8 @@ param (
     [Switch]$All,
     [Switch]$DynamicOnly,
     [Switch]$UnifiedOnly,
-    [Switch]$SecurityOnly
+    [Switch]$SecurityOnly,
+    [Switch]$DistroOnly
 )
     $groups = Get-MgGroup -All
     $SecurityGroups = $groups | Where-Object { -not $_.GroupTypes -and $_.SecurityEnabled } | Select-Object DisplayName, MailEnabled, Mail, id, @{
@@ -55,6 +56,9 @@ param (
     }
     if ($SecurityOnly){
         return $SecurityGroups
+    }
+    if ($DistroOnly){
+        return $DistroGroups
     }
     else {
         $AllGroups = @(

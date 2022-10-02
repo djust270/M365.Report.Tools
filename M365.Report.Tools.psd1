@@ -28,7 +28,7 @@
 	RequiredModules      = @(
 		'ImportExcel'
 		'Microsoft.Online.Sharepoint.PowerShell'
-		'Microsoft.Graph'
+		#'Microsoft.Graph'
 		'ExchangeOnlineManagement'
 	)
 
@@ -38,8 +38,7 @@
 		'Get-M365TUserPrincipalGroups'
 		'Get-M365MailboxReport'
 		'Get-M365TeamsReport'
-		'Get-M365SSOEnterpriseApps'
-		'Export-M365MailBoxReport'
+		'Get-M365SSOEnterpriseApps'		
 		'Set-M365AdminReportSettings'
 	)
 		
