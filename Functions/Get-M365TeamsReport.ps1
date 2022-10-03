@@ -16,7 +16,7 @@ function Get-M365TeamsReport
                 'TeamName' = $Team.displayname
                 'Description' = $Team.Description
                 'Visibility' = $Team.Visibility
-                'Members' = $TeamMembers.AdditionalProperties.email -join ' ; '
+                'Members' = $TeamMembers.AdditionalProperties.email -join ' , '
             })
     }
     return $TeamsReport
