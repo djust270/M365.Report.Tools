@@ -44,6 +44,7 @@
 		'Get-M365TeamsReport'
 		'Get-M365SSOEnterpriseApps'		
 		'Set-M365AdminReportSettings'
+		'Set-M365MGGraphConnectionScopes'
 	)
 		
 	# Private data to pass to the module specified in ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.

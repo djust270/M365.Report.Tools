@@ -4,6 +4,12 @@ function Get-M365TeamsUsageReport{
 		[ValidateSet('D30', 'D90', 'D180')]
 		$Period
 	)
+	# Check admin report settings
+	$DisplayConcealedNames = (Get-M365AdminReportSettings).displayConcealedNames 
+	if ($DisplayConcealedNames -eq $false)
+	{
+		Set-M365AdminReportSettings -ShowNames
+	}
 	$RequiredScopes = 'Reports.Read.All'
 	Set-M365MGGraphConnectionScopes -RequiredScopes $RequiredScopes
 	try
@@ -14,8 +20,12 @@ function Get-M365TeamsUsageReport{
 	}
 	Catch
 	{
-		$_ ; break
+		throw $_ ; break
 	}
 	Remove-Item $tempfile
+	if ($DisplayConcealedNames -eq $false)
+	{
+		Set-M365AdminReportSettings -ConcealNames
+	}
 	return $TeamsReport
 }

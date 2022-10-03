@@ -2,7 +2,12 @@ function Set-M365MGGraphConnectionScopes {
 param (
     [String[]]$RequiredScopes
 )
+try {
 $CurrentMGScopes = (Get-MgContext).scopes
+}
+catch [System.Management.Automation.CommandNotFoundException]{
+    Connect-Graph -Scopes $RequiredScopes -ForceRefresh
+}
 $RequiredScopes | foreach-object {
     if ($_ -notin $CurrentMGScopes){
     Import-Module Microsoft.Graph.Authentication

@@ -4,22 +4,34 @@ function Get-M365MailboxReport
 		[Switch]$SharedOnly,
         [Switch]$ResourceOnly,
         [Switch]$UserOnly,
-        [Switch]$All,
+        [Switch]$All = $true,
         [Switch]$IncludeMailboxSize,
         [String[]]$AddProperties
 	)
+    try {
 	if ($SharedOnly){
-        $mailboxes = Get-Mailbox -Filter { isShared -eq 'true' }
+        $All = $false
+        $Mailboxes = Get-Mailbox -Filter { isShared -eq 'true' } -Resultsize Unlimited
     }
     if ($ResourceOnly){
-        $mailboxes = Get-Mailbox -Filter { isResource -eq 'true' }
+        $All = $false
+        $Mailboxes = Get-Mailbox -Filter { isResource -eq 'true' } -Resultsize Unlimited
     }
     if ($UserOnly){
-        $mailboxes = Get-Mailbox -Filter { (isShared -eq 'false') -and (isResource -eq 'false') }
+        $All = $false
+        $Mailboxes = Get-Mailbox -Filter { (isShared -eq 'false') -and (isResource -eq 'false') } -Resultsize Unlimited
     }
+    if ($All){
+        $Mailboxes = Get-Mailbox -Resultsize Unlimited
+    }
+}
+catch [System.Management.Automation.CommandNotFoundException]{
+    Write-Warning "You must first call Connect-ExchangeOnline before running this command"
+    break
+}
 	$i = 1
     $MailboxDetails = [System.Collections.Generic.List[PsObject]]::new()
-    foreach ($box in $mailboxes)
+    foreach ($box in $Mailboxes)
 	{
 		if ($box.isResource){$type = 'Resource'}
         if ($box.isShared){$type = 'Shared'}
