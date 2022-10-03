@@ -29,6 +29,7 @@ catch [System.Management.Automation.CommandNotFoundException]{
     Write-Warning "You must first call Connect-ExchangeOnline before running this command"
     break
 }
+    $MailboxProperties = ($Mailboxes | Get-Member -MemberType Property).Name    
 	$i = 1
     $MailboxDetails = [System.Collections.Generic.List[PsObject]]::new()
     foreach ($box in $Mailboxes)
@@ -45,7 +46,11 @@ catch [System.Management.Automation.CommandNotFoundException]{
             n = 'EmailAddresses'; e = { ($_.EmailAddresses -join ' , ') }},HiddenFromAddressListsEnabled,@{
                 n = 'GrantSendOnBehalfTo'; e = { ($_.GrantSendOnBehalfTo -join ' , ') }},@{ 
                         n = 'Type' ; e={$type}}, ForwardingAddress, ForwardingSmtpAddress , IsInactiveMailbox
-        foreach ($NewProp in $AddProperties){
+        foreach ($NewProp in $AddProperties){ 
+            # Check if given additional propety is valid
+            if ($NewProp -notin $MailboxProperties){Write-Error "$NewProp is not a valid mailbox property`nValid Properties incude:`n$($MailboxProperties)"
+            break
+        }           
             Write-Progress -Activity "Adding Additional Properties" -Status "Working on $NewProp for mailbox $($box.displayname)"
             $SingleMailboxDetails | Add-Member -MemberType NoteProperty -Name $NewProp -Value ($box | Select-Object -ExpandProperty $NewProp)
         }
