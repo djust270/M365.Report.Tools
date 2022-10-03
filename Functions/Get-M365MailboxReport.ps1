@@ -33,14 +33,18 @@ catch [System.Management.Automation.CommandNotFoundException]{
     $MailboxDetails = [System.Collections.Generic.List[PsObject]]::new()
     foreach ($box in $Mailboxes)
 	{
-		if ($box.isResource){$type = 'Resource'}
-        if ($box.isShared){$type = 'Shared'}
-        if (-not $box.isResource -and -not $box.isShared){$type = 'User'}
+		Switch ($box.RecipientTypeDetails){
+            UserMailbox {$type = 'UserMailbox'}
+            RoomMailbox {$type = 'RoomMailbox'}
+            SchedulingMailbox {$type = 'SchedulingMailbox'}
+            DiscoveryMailbox {$type = 'DiscoveryMailbox'}
+            SharedMailbox {$type = 'SharedMailbox'}
+        }
         Write-Progress -Activity "Processing Mailbox Report" -Status "Working on $($box.displayname)" -PercentComplete (($i / $mailboxes.Count) * 100)		
 		$SingleMailboxDetails = $box | Select-Object Identity, Displayname, PrimarySMTPAddress, @{
             n = 'EmailAddresses'; e = { ($_.EmailAddresses -join ' , ') }},HiddenFromAddressListsEnabled,@{
                 n = 'GrantSendOnBehalfTo'; e = { ($_.GrantSendOnBehalfTo -join ' , ') }},@{ 
-                        n = 'Type' ; e={$type}}
+                        n = 'Type' ; e={$type}}, ForwardingAddress, ForwardingSmtpAddress , IsInactiveMailbox
         foreach ($NewProp in $AddProperties){
             Write-Progress -Activity "Adding Additional Properties" -Status "Working on $NewProp for mailbox $($box.displayname)"
             $SingleMailboxDetails | Add-Member -MemberType NoteProperty -Name $NewProp -Value ($box | Select-Object -ExpandProperty $NewProp)
