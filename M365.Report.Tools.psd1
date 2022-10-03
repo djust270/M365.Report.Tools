@@ -38,11 +38,16 @@
 
 	# Functions to export from this module
 	FunctionsToExport = @(
-		'Get-M365TeamsUsageReport'
-		'Get-M365TUserPrincipalGroups'
+		'Get-M365AdminReportSettings'
+		'Get-M365GroupReport'
 		'Get-M365MailboxReport'
+		'Get-M365MGUserPrincipalMembership'
+		'Get-M365SSOEnterpriseApps'
+		'Get-M365TeamsChannelReport'
 		'Get-M365TeamsReport'
-		'Get-M365SSOEnterpriseApps'		
+		'Get-M365TeamsUsageReport'
+		'Get-M365TenantLicenseReport'
+		'Get-M365UserReport'
 		'Set-M365AdminReportSettings'
 		'Set-M365MGGraphConnectionScopes'
 	)
