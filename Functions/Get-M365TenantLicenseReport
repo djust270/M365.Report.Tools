@@ -132,7 +132,7 @@ Set-M365MGGraphConnectionScopes -RequiredScopes $RequiredScopes
 Select-MgProfile beta
 # Get all tenant skus
 [Array]$Skus = Get-MgSubscribedSku
-$TenantLicenseDetails = $Skus | foreach {
+$TenantLicenseDetails = $Skus | ForEach-Object {
 	[pscustomobject]@{
 		SkuPartNumber = $_.SkuPartNumber
 		TotalLicense  = $_.prepaidunits.enabled
