@@ -1,9 +1,7 @@
-function Get-M365UserPrincipalGroupMembership{
+function Get-M365MGUserPrincipalGroupMembership{
 param (
 		[string]$UserID
 	)
-	$RequiredScopes = 'Directory.Read.All'
-	Set-M365MGGraphConnectionScopes -scopes $RequiredScopes
 	$graphApiVersion = "v1.0"
 	$Resource = "users/$UserID/memberOf/$/microsoft.graph.group?$select=id,displayName,securityEnabled,groupTypes,onPremisesSyncEnabled"
 	$uri = "https://graph.microsoft.com/$graphApiVersion/$($Resource)"
