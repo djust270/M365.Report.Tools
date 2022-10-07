@@ -136,3 +136,5 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
+https://learn.microsoft.com/en-us/powershell/module/exchange/get-mailbox?view=exchange-ps
+https://learn.microsoft.com/en-us/powershell/module/exchange/get-mailboxstatistics?view=exchange-ps

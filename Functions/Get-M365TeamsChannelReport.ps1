@@ -1,5 +1,6 @@
 function Get-M365TeamsChannelReport 
 {
+    [CmdletBinding(SupportsPaging=$true)]
     $RequiredScopes = @(
     'Channel.ReadBasic.All'
 	'Team.ReadBasic.All'

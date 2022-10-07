@@ -1,4 +1,5 @@
 function Set-M365AdminReportSettings {
+    [CmdletBinding()]
     param(
         [Switch]$ShowNames,
         [Switch]$ConcealNames

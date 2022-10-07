@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-M365SSOEnterpriseApps
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+List all enterprise applications with SSO integration.
 
 ## SYNTAX
 
@@ -17,18 +17,21 @@ Get-M365SSOEnterpriseApps
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+List out all enterprise applications (service principals) in AzureAD with SAML SSO integration by utilizng the Microsoft Graph PowerShell SDK. Also list SAML signing certitifcate expiration date and notification email address(s).
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-M365SSOEnterpriseApps | Export-Excel -Path C:\Reports\M365MasterReport.xlsx -Worksheetname SSOApps -TableName SSOApps -Autosize
 ```
 
-{{ Add example description here }}
+List out all all enterprise applications in AzureAD with SAML SSO integration. Export to an Excel workbook by piping to Export-Excel. 
 
 ## PARAMETERS
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -40,3 +43,4 @@ PS C:\> {{ Add example code here }}
 ## NOTES
 
 ## RELATED LINKS
+https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.applications/get-mgserviceprincipal?view=graph-powershell-1.0

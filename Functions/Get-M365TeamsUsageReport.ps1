@@ -1,5 +1,6 @@
 function Get-M365TeamsUsageReport{
-	param (
+	[CmdletBinding()]
+	param (		
 		[Parameter(Mandatory)]
 		[ValidateSet('D30', 'D90', 'D180')]
 		$Period

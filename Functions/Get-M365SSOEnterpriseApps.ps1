@@ -1,5 +1,6 @@
 function Get-M365SSOEnterpriseApps 
 {
+[CmdletBinding()]
 $Apps = Get-MgServicePrincipal -All
 $SSOApps = $Apps | Where-Object { $_.KeyCredentials.Displayname -eq "CN=Microsoft Azure Federated SSO Certificate" } | Select-Object displayname, LoginURL, Homepage, AppID, @{
 	name	   = 'NotificaitonEmailaddresses'

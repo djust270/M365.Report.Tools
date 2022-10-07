@@ -1,4 +1,5 @@
 function Set-M365MGGraphConnectionScopes {
+    [CmdletBinding()]
 param (
     [String[]]$RequiredScopes
 )

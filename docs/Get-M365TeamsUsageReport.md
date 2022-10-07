@@ -23,15 +23,15 @@ Get-M365TeamsUsageReport [-Period] <Object> [<CommonParameters>]
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-M365TeamsUsageReport -Period D180
 ```
 
-{{ Add example description here }}
+Pull down the teams usage report for the past 180 days.
 
 ## PARAMETERS
 
 ### -Period
-{{ Fill Period Description }}
+Specify the report time period. Valid values are D7, D30, D90 and D180. Defaults to D90. 
 
 ```yaml
 Type: Object
@@ -59,3 +59,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+https://learn.microsoft.com/en-us/graph/api/reportroot-getteamsteamactivitydetail?view=graph-rest-beta

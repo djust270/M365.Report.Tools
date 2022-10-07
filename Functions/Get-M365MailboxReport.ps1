@@ -1,5 +1,6 @@
 function Get-M365MailboxReport
 {
+    [CmdletBinding(SupportsPaging=$true)]
 	param (
 		[Switch]$SharedOnly,
         [Switch]$ResourceOnly,

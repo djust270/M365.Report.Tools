@@ -1,4 +1,5 @@
 function Get-M365UserReport {
+	[CmdletBinding(SupportsPaging=$true)]
     param (
         [string[]]$AddProperties
     )

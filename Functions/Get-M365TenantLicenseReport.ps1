@@ -1,4 +1,5 @@
 function Get-M365TenantLicenseReport {
+	[CmdletBinding()]
     $FriendlyLicenses = @{
 	'O365_BUSINESS_ESSENTIALS'		     = 'Office 365 Business Essentials'
 	'O365_BUSINESS_PREMIUM'			     = 'Office 365 Business Premium'

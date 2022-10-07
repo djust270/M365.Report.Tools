@@ -19,7 +19,7 @@
 	Copyright = '(c) 2022. All rights reserved.'
 	
 	# Description of the functionality provided by this module
-	Description = 'Module description'
+	Description = 'A PowerShell Module with tools for gathering data and creating reports on various areas of M365 services. This module is designed with ease of use. Reports can be easily exported to CSV file or Excel workbook(s).'
 	
 	# Minimum version of the Windows PowerShell engine required by this module
 	PowerShellVersion	   = '5.1'
@@ -54,7 +54,7 @@
 	# Private data to pass to the module specified in ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 	PrivateData          = @{
         PSData = @{
-            Tags         = @('Intune', 'MDM')
+            Tags         = @('O365', 'Microsoft Graph', 'Exchange Online')
             LicenseUri   = 'https://github.com/djust270/M365.Report.Tools/blob/main/LICENSE'
             ProjectUri   = 'https://github.com/djust270/M365.Report.Tools'
             ReleaseNotes = 'https://github.com/djust270/M365.Report.Tools/blob/main/README.md'

@@ -1,4 +1,5 @@
 function Get-M365MGUserPrincipalGroupMembership{
+	[CmdletBinding()]
 param (
 		[string]$UserID
 	)

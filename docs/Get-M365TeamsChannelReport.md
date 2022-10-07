@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-M365TeamsChannelReport
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+List out all teams channels for every team. 
 
 ## SYNTAX
 
@@ -17,16 +17,23 @@ Get-M365TeamsChannelReport
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+List out every team channel and their associated members. 
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-M365TeamsChannelReport | Export-Excel -path C:\Reports\MasterReport.xlsx -Worksheetname TeamsChannelReport -Tablename TeamsChannels -Autosize
 ```
 
-{{ Add example description here }}
+Get a report for every teams channel and export to an excel workbook by piping to Export-Excel
+
+### Example 2
+```powershell
+PS C:\> Get-M365TeamsChannelReport | Export-CSV -path C:\reports\TeamsChannelReport.csv -notypeinformation 
+```
+
+Get a report for every teams channel and export to a CSV file by piping to Export-CSV. Exclude .NET type information. 
 
 ## PARAMETERS
 
@@ -40,3 +47,4 @@ PS C:\> {{ Add example code here }}
 ## NOTES
 
 ## RELATED LINKS
+https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.teams/get-mgteamchannel?view=graph-powershell-beta

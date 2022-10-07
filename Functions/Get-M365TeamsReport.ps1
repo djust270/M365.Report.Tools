@@ -1,5 +1,6 @@
 function Get-M365TeamsReport 
 {
+    [CmdletBinding(SupportsPaging=$true)]
     $RequiredScopes = @('Team.ReadBasic.All','TeamMember.Read.All')
     Set-M365MGGraphConnectionScopes -RequiredScopes $RequiredScopes
     Select-MgProfile beta
@@ -9,8 +10,7 @@ function Get-M365TeamsReport
     foreach ($Team in $Teams)
     {
         Write-Progress -Activity "Processing Teams details" -Status "Working on $($Team.displayname)" -PercentComplete (($i / $Teams.Count) * 100)
-        $TeamMembers = Get-MgTeamMember -TeamId $Team.id
-        Write-Progress -Activity "Working on Team Channels"
+        $TeamMembers = Get-MgTeamMember -TeamId $Team.id       
         $i++
         $TeamsReport.Add([pscustomobject]@{
                 'TeamName' = $Team.displayname
