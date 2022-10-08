@@ -9,7 +9,7 @@ function Set-M365AdminReportSettings {
     if ($ShowNames){
         Invoke-MGGraphRequest -Method PATCH -uri "/beta/admin/reportSettings" -body @{ "displayConcealedNames" = $false }
     }
-    else {
+    if ($ConcealNames) {
         Invoke-MGGraphRequest -Method PATCH -uri "/beta/admin/reportSettings" -body @{ "displayConcealedNames" = $true }
     }
 }

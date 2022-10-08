@@ -44,13 +44,13 @@
 		'Get-M365MGUserPrincipalMembership'
 		'Get-M365SSOEnterpriseApps'
 		'Get-M365TeamsChannelReport'
-		'Get-M365TeamsReport'
-		'Get-M365TeamsUsageReport'
+		'Get-M365TeamsReport'		
 		'Get-M365TenantLicenseReport'
 		'Get-M365UserReport'
 		'Set-M365AdminReportSettings'	
 		'Get-M365UserReport'
-		'Get-M365UserLicenseReport'	
+		'Get-M365UserLicenseReport'		
+		'Get-M365UsageReport'	
 	)
 		
 	# Private data to pass to the module specified in ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
