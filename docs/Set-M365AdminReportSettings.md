@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-M365AdminReportSettings
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Set the admin report settings to show names or conceal for privacy
 
 ## SYNTAX
 
@@ -17,21 +17,28 @@ Set-M365AdminReportSettings [-ShowNames] [-ConcealNames]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Set the admin report settings to show names or conceal for privacy. The default value is to conceal names,
+however you will likely need to show names for your reports. 
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Set-M365AdminReportSettings -ShowNames
 ```
 
-{{ Add example description here }}
+Update the admin report settings to show names in any admin reports. 
+
+### Example 1
+```powershell
+PS C:\> Set-M365AdminReportSettings -ConcealNames
+
+Update the admin report settings to conceal names in any admin reports. 
 
 ## PARAMETERS
 
 ### -ConcealNames
-{{ Fill ConcealNames Description }}
+Specifying this parameter will conceal names in admin reports. 
 
 ```yaml
 Type: SwitchParameter
@@ -46,7 +53,7 @@ Accept wildcard characters: False
 ```
 
 ### -ShowNames
-{{ Fill ShowNames Description }}
+Specifying this parameter will show names in admin reports. 
 
 ```yaml
 Type: SwitchParameter
