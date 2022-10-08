@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-M365TeamsUsageReport
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Get the Teams Usage admin report
 
 ## SYNTAX
 
@@ -17,7 +17,7 @@ Get-M365TeamsUsageReport [-Period] <Object> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This will get the Teams usage admin report for the past 7, 30, 90 or 180 day period. 
 
 ## EXAMPLES
 
@@ -27,6 +27,13 @@ PS C:\> Get-M365TeamsUsageReport -Period D180
 ```
 
 Pull down the teams usage report for the past 180 days.
+
+### Example 2
+```powershell
+PS C:\> Get-M365TeamsUsageReport -Period D180 | Export-Excel -path C:\Reports\MasterReport.xlsx -Worksheetname TeamsUsageReport -Tablename TeamsUsage
+```
+
+Pull down the teams usage report for the past 180 days then export to the excel workbook MasterReport.xlsx using the Export-Excel command. 
 
 ## PARAMETERS
 
@@ -60,3 +67,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 https://learn.microsoft.com/en-us/graph/api/reportroot-getteamsteamactivitydetail?view=graph-rest-beta
+https://learn.microsoft.com/en-us/microsoftteams/teams-analytics-and-reports/teams-usage-report
