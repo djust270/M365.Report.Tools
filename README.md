@@ -1,5 +1,5 @@
 # M365.Report.Tools
-A PowerShell Module with tools for gathering data and creating reports on various areas of M365 services. This module is designed with ease of use with serveral baked in custom reports and the ability to export any built in Admin center usage report. Reports can be easily exported to CSV file or Excel workbook(s).
+A PowerShell Module with tools for gathering data and creating reports on various areas of M365 services. This module is designed with ease of use with several baked in custom reports and the ability to export any built in Admin center usage report. Reports can be easily exported to CSV file or Excel workbook(s).
 
 To install:
 ```powershell
