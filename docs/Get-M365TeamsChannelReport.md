@@ -47,4 +47,4 @@ Get a report for every teams channel and export to a CSV file by piping to Expor
 ## NOTES
 
 ## RELATED LINKS
-https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.teams/get-mgteamchannel?view=graph-powershell-beta
+[Graph API Get-MGTeamChannel](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.teams/get-mgteamchannel?view=graph-powershell-beta)

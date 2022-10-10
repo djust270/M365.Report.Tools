@@ -82,4 +82,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-https://learn.microsoft.com/en-us/graph/api/resources/report?view=graph-rest-beta
+[Graph API Report](https://learn.microsoft.com/en-us/graph/api/resources/report)

@@ -45,4 +45,4 @@ This example returned 'displayConcealedNames = True' meaning names will be shown
 ## NOTES
 
 ## RELATED LINKS
-https://learn.microsoft.com/en-us/graph/api/adminreportsettings-get?view=graph-rest-beta&tabs=http
+[Graph API Admin Report Settings](https://learn.microsoft.com/en-us/graph/api/adminreportsettings-get)

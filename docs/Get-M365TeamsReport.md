@@ -50,4 +50,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.teams/get-mgteam?view=graph-powershell-beta
+[Graph API Get-MGTeam](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.teams/get-mgteam?view=graph-powershell-beta)

@@ -125,4 +125,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta
+[Graph API Get-MGUser](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.users/get-mguser)
