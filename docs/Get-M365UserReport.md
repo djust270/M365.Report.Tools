@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-M365UserReport
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Get a summary report for all user accounts in an M365 tenant. 
 
 ## SYNTAX
 
@@ -18,21 +18,38 @@ Get-M365UserReport [[-AddProperties] <String[]>] [-IncludeTotalCount] [-Skip <UI
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Get a report of all user accounts, including guest accounts. By default, returns the following properties: 
+UserPrincipalName
+id
+AccountEnabled
+Mail
+JobTitle
+PasswordPolicies
+UserType
+CreatedDateTime
+OnPremisesSyncEnabled
+MobilePhone
+BusinessPhone
+OfficeLocation
+UsageLocation
+StreetAddress
+City
+
+Add addtional properties to report with -AddProperties. 
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-M365UserReport | Export-Excel -path C:\Reports\MasterReport.xlsx -Worksheetname UserReport -Tablename UserReport 
 ```
 
-{{ Add example description here }}
+Export the user report to the excel workbook 'MasterReport.xlsx' on worksheet name 'UserReport'.
 
 ## PARAMETERS
 
 ### -AddProperties
-{{ Fill AddProperties Description }}
+Specify additional properties to add to output. 
 
 ```yaml
 Type: String[]
@@ -108,3 +125,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.users/get-mguser?view=graph-powershell-beta

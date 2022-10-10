@@ -1,5 +1,5 @@
 function Get-M365GroupReport {
-    [CmdletBinding(SupportsPaging=$true)]
+    [CmdletBinding()]
 param (
     [Switch]$All,
     [Switch]$DynamicOnly,
