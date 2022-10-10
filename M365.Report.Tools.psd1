@@ -56,7 +56,7 @@
 	# Private data to pass to the module specified in ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
 	PrivateData          = @{
         PSData = @{
-            Tags         = @('O365', 'Microsoft Graph', 'Exchange Online')
+            Tags         = @('O365','Graph','Exchange','SharePoint')
             LicenseUri   = 'https://github.com/djust270/M365.Report.Tools/blob/main/LICENSE'
             ProjectUri   = 'https://github.com/djust270/M365.Report.Tools'
             ReleaseNotes = 'https://github.com/djust270/M365.Report.Tools/blob/main/README.md'
