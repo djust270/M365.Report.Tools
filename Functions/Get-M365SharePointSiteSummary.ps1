@@ -9,6 +9,9 @@ function Get-M365SharePointSiteSummary {
         Write-Host "Attempting to connect to SharePoint Online..."
         Connect-SPOService -Url $SharepointAdminURL
     }
+    catch [System.Management.Automation.CommandNotFoundException]{
+        Throw "You must first call install the SharePoint Online PowerShell module before running this command (Microsoft.Online.SharePoint.PowerShell)"    
+    }
     Catch {
         throw $_ # Send terminating error       
     }

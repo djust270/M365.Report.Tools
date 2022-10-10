@@ -26,8 +26,7 @@
 
 	# Dependancies
 	RequiredModules      = @(
-		'ImportExcel'
-		'Microsoft.Online.Sharepoint.PowerShell'
+		'ImportExcel'		
 		'Microsoft.Graph.Authentication'
 		'Microsoft.Graph.Applications'
 		'Microsoft.Graph.Groups'

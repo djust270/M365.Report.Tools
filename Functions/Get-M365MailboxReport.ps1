@@ -27,8 +27,7 @@ function Get-M365MailboxReport
     }
 }
 catch [System.Management.Automation.CommandNotFoundException]{
-    Write-Warning "You must first call Connect-ExchangeOnline before running this command"
-    break
+    Throw "You must first call Connect-ExchangeOnline before running this command"    
 }
     $MailboxProperties = ($Mailboxes | Get-Member -MemberType Property).Name    
 	$i = 1
