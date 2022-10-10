@@ -5,7 +5,7 @@ function Get-M365TeamsChannelReport
     'Channel.ReadBasic.All'
 	'Team.ReadBasic.All'
 	'TeamMember.Read.All')
-    Set-M365MGGraphConnectionScopes -RequiredScopes $RequiredScopes
+    Set-M365MGGraphConnectionScopes -RequiredScopes $RequiredScopes  
     $TeamsChannelReport = [System.Collections.Generic.List[PsObject]]::new()
     $Teams = Get-MgTeam -All
     $i = 1

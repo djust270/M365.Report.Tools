@@ -148,6 +148,7 @@ foreach ($user in $Users)
                             SkuPartNumber = $_.SkuPartNumber
                         })
 					}
+    $i++
 }  
     $UserLicenseReport
     Write-Warning "Please remember to disconnect from the Microsoft Graph by using 'Disconnect-MGGraph'"
