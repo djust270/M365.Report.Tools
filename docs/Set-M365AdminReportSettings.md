@@ -32,7 +32,7 @@ Update the admin report settings to show names in any admin reports.
 ### Example 1
 ```powershell
 PS C:\> Set-M365AdminReportSettings -ConcealNames
-
+```
 Update the admin report settings to conceal names in any admin reports. 
 
 ## PARAMETERS

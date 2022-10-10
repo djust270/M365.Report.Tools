@@ -1,0 +1,1367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365AdminReportSettings</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365AdminReportSettings</command:noun>
+      <maml:description>
+        <maml:para>Returns the current admin report setting</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Will return the current admin report privacy setting (conceal or show names).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365AdminReportSettings</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365AdminReportSettings
+
+Name                           Value
+----                           -----
+displayConcealedNames          True
+@odata.context                 https://graph.microsoft.com/beta/$metadata#admin/reportSettings/$entity</dev:code>
+        <dev:remarks>
+          <maml:para>This example returned 'displayConcealedNames = True' meaning names will be shown in any admin center reports. The default value for displayConcealedNames is False. Use Set-M365AdminReportSettings to change this value.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Graph API Admin Report Settings</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/graph/api/adminreportsettings-get</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365GroupReport</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365GroupReport</command:noun>
+      <maml:description>
+        <maml:para>List all groups and group types from Azure AD including source of authority.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>List out all groups in Azure AD. Easily filter by security groups, O365 (unified) groups, dynamic groups, distribution groups or list all. Outputs group name, object ID, MailEnabled, Mail, and source (OnPrem or Cloud) and dynamic membership rule.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365GroupReport</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>All</maml:name>
+          <maml:description>
+            <maml:para>This will output all grouptypes.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>DistroOnly</maml:name>
+          <maml:description>
+            <maml:para>List only distribution groups</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>DynamicOnly</maml:name>
+          <maml:description>
+            <maml:para>List only dynamic membership groups</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>SecurityOnly</maml:name>
+          <maml:description>
+            <maml:para>List only security enabled groups</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>UnifiedOnly</maml:name>
+          <maml:description>
+            <maml:para>List only Office 365 groups</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>All</maml:name>
+        <maml:description>
+          <maml:para>This will output all grouptypes.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>DistroOnly</maml:name>
+        <maml:description>
+          <maml:para>List only distribution groups</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>DynamicOnly</maml:name>
+        <maml:description>
+          <maml:para>List only dynamic membership groups</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>SecurityOnly</maml:name>
+        <maml:description>
+          <maml:para>List only security enabled groups</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>UnifiedOnly</maml:name>
+        <maml:description>
+          <maml:para>List only Office 365 groups</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365GroupReport | Export-CSV -notypeinformation -path C:\reports\AzADGroupReport.csv</dev:code>
+        <dev:remarks>
+          <maml:para>Export a list of all groups to a CSV file.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365GroupReport | Export-Excel -path C:\reports\M365MasterReport.xlsx -worksheetname M365GroupReport -tablename GroupReport -Autosize</dev:code>
+        <dev:remarks>
+          <maml:para>Export a list of all groups into an excel workbook as a table on an excel worksheet.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365MailboxReport</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365MailboxReport</command:noun>
+      <maml:description>
+        <maml:para>List out all mailboxes in Exchange Online for easy export to a report file.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>List out all active mailboxes or filter by shared, resource or user mailboxes. Optionally include mailbox size. By default, outputs mailbox identity, displayname, email addresses (aliases), primary email address, type, address list hidden policy, recipeints with send on behalf permisson and forwarding details. Additional properties can be specified.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365MailboxReport</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>AddProperties</maml:name>
+          <maml:description>
+            <maml:para>Specify one or more additional mailbox properties to display.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>All</maml:name>
+          <maml:description>
+            <maml:para>This will list all active, non-archive mailboxes.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IncludeMailboxSize</maml:name>
+          <maml:description>
+            <maml:para>This will retrieve the current mailbox total size.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ResourceOnly</maml:name>
+          <maml:description>
+            <maml:para>Use this to only return resource mailboxes</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>SharedOnly</maml:name>
+          <maml:description>
+            <maml:para>Use this to only retun shared mailboxes</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>UserOnly</maml:name>
+          <maml:description>
+            <maml:para>Use this to only return user mailboxes.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>AddProperties</maml:name>
+        <maml:description>
+          <maml:para>Specify one or more additional mailbox properties to display.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>All</maml:name>
+        <maml:description>
+          <maml:para>This will list all active, non-archive mailboxes.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>IncludeMailboxSize</maml:name>
+        <maml:description>
+          <maml:para>This will retrieve the current mailbox total size.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ResourceOnly</maml:name>
+        <maml:description>
+          <maml:para>Use this to only return resource mailboxes</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>SharedOnly</maml:name>
+        <maml:description>
+          <maml:para>Use this to only retun shared mailboxes</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>UserOnly</maml:name>
+        <maml:description>
+          <maml:para>Use this to only return user mailboxes.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365MailboxReport -UserOnly -IncludeMailboxSize -AddProperties MaxSendSize | Export-Excel -Path C:\reports\M365MasterReport -WorksheetName MailboxReport -tablename MailboxReport -Autosize</dev:code>
+        <dev:remarks>
+          <maml:para>List all user mailboxes, including mailbox size and maximum outgoing message size. Export to an excel workbook.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365MailboxReport -SharedOnly</dev:code>
+        <dev:remarks>
+          <maml:para>List only shared mailboxes.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Exchange PowerShell Get-Mailbox</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/powershell/module/exchange/get-mailbox?view=exchange-ps</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Exchange PowerShell Get-MailboxStatistics</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/powershell/module/exchange/get-mailboxstatistics?view=exchange-ps</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365MGUserPrincipalGroupMembership</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365MGUserPrincipalGroupMembership</command:noun>
+      <maml:description>
+        <maml:para>Return all groups a user is a member of</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Returns every group a user object is a member of</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365MGUserPrincipalGroupMembership</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>UserID</maml:name>
+          <maml:description>
+            <maml:para>Specify the AzureAD user object GUID or the UserPrincipalName of the user object.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>UserID</maml:name>
+        <maml:description>
+          <maml:para>Specify the AzureAD user object GUID or the UserPrincipalName of the user object.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365MGUserPrincipalGroupMembership -UserID djust@davidjust.com</dev:code>
+        <dev:remarks>
+          <maml:para>Return a list of all groups user djust@davidjust.com is a member of.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365SharePointSiteSummary</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365SharePointSiteSummary</command:noun>
+      <maml:description>
+        <maml:para>Return a summary list of all SharePoint sites.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>A simple wrapper function around 'Get-SPOSite'. This will handle connecting to SharePoint online and return a list of all SharePoint sites, including Title, Url, StorageQuota, StorageUsageCurrent, Owner, SharingCapability.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365SharePointSiteSummary</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IncludPersonalSites</maml:name>
+          <maml:description>
+            <maml:para>Include OneDrive sites in summary report.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>IncludPersonalSites</maml:name>
+        <maml:description>
+          <maml:para>Include OneDrive sites in summary report.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365SharePointSiteSummary</dev:code>
+        <dev:remarks>
+          <maml:para>Return a summary list of all SharePoint sites (excluding OneDrive sites)</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Get-SPOSite</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/powershell/module/sharepoint-online/get-sposite?view=sharepoint-ps</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365SSOEnterpriseApps</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365SSOEnterpriseApps</command:noun>
+      <maml:description>
+        <maml:para>List all enterprise applications with SSO integration.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>List out all enterprise applications (service principals) in AzureAD with SAML SSO integration by utilizng the Microsoft Graph PowerShell SDK. Also list SAML signing certitifcate expiration date and notification email address(s).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365SSOEnterpriseApps</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365SSOEnterpriseApps | Export-Excel -Path C:\Reports\M365MasterReport.xlsx -Worksheetname SSOApps -TableName SSOApps -Autosize</dev:code>
+        <dev:remarks>
+          <maml:para>List out all all enterprise applications in AzureAD with SAML SSO integration. Export to an Excel workbook by piping to Export-Excel.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Graph API Get-MGServicePrincipal</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.applications/get-mgserviceprincipal?view=graph-powershell-1.0</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365TeamsChannelReport</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365TeamsChannelReport</command:noun>
+      <maml:description>
+        <maml:para>List out all teams channels for every team.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>List out every team channel and their associated members.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365TeamsChannelReport</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365TeamsChannelReport | Export-Excel -path C:\Reports\MasterReport.xlsx -Worksheetname TeamsChannelReport -Tablename TeamsChannels -Autosize</dev:code>
+        <dev:remarks>
+          <maml:para>Get a report for every teams channel and export to an excel workbook by piping to Export-Excel</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365TeamsChannelReport | Export-CSV -path C:\reports\TeamsChannelReport.csv -notypeinformation</dev:code>
+        <dev:remarks>
+          <maml:para>Get a report for every teams channel and export to a CSV file by piping to Export-CSV. Exclude .NET type information.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Graph API Get-MGTeamChannel</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.teams/get-mgteamchannel?view=graph-powershell-beta</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365TeamsReport</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365TeamsReport</command:noun>
+      <maml:description>
+        <maml:para>Get a report listing every Microsoft Team</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Returns a report listing every Microsoft Team, including name, description, visibility and members.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365TeamsReport</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365TeamsReport | Export-Excel -path C:\Reports\MasterReport.xlsx -Worksheetname TeamsReport -Tablename Teams</dev:code>
+        <dev:remarks>
+          <maml:para>Get a report for every Microsoft Team and export to an excel workbook by piping to Export-Excel.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365TeamsReport | Export-CSV -path C:\reports\TeamsReport.csv -NoTypeInformation</dev:code>
+        <dev:remarks>
+          <maml:para>Get a report for every Microsoft Team and export to a CSV file by piping to Export-CSV. Exclude .NET type information.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Graph API Get-MGTeam</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.teams/get-mgteam?view=graph-powershell-beta</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365TenantLicenseReport</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365TenantLicenseReport</command:noun>
+      <maml:description>
+        <maml:para>Get a summary of all licenses in a tenant.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Return a table of all licenses including total count, assigned count, Sku name and friendly name.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365TenantLicenseReport</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365TenantLicenseReport</dev:code>
+        <dev:remarks>
+          <maml:para>Return a summary of all licenses in a Office 365 tenant.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Graph API Get-MGSubscribedSku</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/get-mgsubscribedsku?view=graph-powershell-1.0</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365UsageReport</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365UsageReport</command:noun>
+      <maml:description>
+        <maml:para>Get the contents of any O365 Admin Center usage report.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>{{ Fill in the Description }}</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365UsageReport</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>Period</maml:name>
+          <maml:description>
+            <maml:para>Period in days for the report to include.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">D7</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">D30</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">D90</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">D180</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+          <dev:type>
+            <maml:name>Object</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>ReportArea</maml:name>
+          <maml:description>
+            <maml:para>Specify the report to retrieve.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">TeamsTeamActivityDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsDeviceUsageUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsDeviceUsageTotalUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsDeviceUsageDistributionUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsDeviceUsageDistributionTotalUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsUserActivityUserDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsUserActivityCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsUserActivityTotalCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsUserActivityUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsUserActivityTotalUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsUserActivityDistributionUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsUserActivityDistributionTotalUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsUserActivityTotalDistributionCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsTeamActivityDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsTeamActivityCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">TeamsTeamActivityDistributionCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">EmailActivityUserDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">EmailActivityCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">EmailActivityUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">EmailAppUsageUserDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">EmailAppUsageAppsUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">EmailAppUsageUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">EmailAppUsageVersionsUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">MailboxUsageDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">MailboxUsageMailboxCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">MailboxUsageQuotaStatusMailboxCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">MailboxUsageStorage</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Office365ActiveUserDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Office365ActiveUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Office365ServicesUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">M365AppUserDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">M365AppUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">M365AppPlatformUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">BrowserUserDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">BrowserUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">BrowserDistributionUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Office365GroupsActivityDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Office365GroupsActivityCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Office365GroupsActivityGroupCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Office365GroupsActivityStorage</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Office365GroupsActivityFileCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveActivityUserDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveActivityUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveActivityFileCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveActivityUserDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveActivityUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveActivityFileCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveUsageAccountDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveUsageAccountCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveUsageFileCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">OneDriveUsageStorage</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SharePointActivityUserDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SharePointActivityFileCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SharePointActivityUserCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SharePointActivityPages</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SharePointSiteUsageDetail</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SharePointSiteUsageFileCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SharePointSiteUsageSiteCounts</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SharePointSiteUsageStorage</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">SharePointSiteUsagePages</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>Period</maml:name>
+        <maml:description>
+          <maml:para>Period in days for the report to include.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Object</command:parameterValue>
+        <dev:type>
+          <maml:name>Object</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>ReportArea</maml:name>
+        <maml:description>
+          <maml:para>Specify the report to retrieve.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365UsageReport -ReportArea Office365ActiveUserDetail -Period D90</dev:code>
+        <dev:remarks>
+          <maml:para>Get the Office365 Active User Detail report for the past 90 day period.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365UsageReport -ReportArea SharePointActivityUserDetail -Period D30 | Export-CSV -NoTypeInformation .\SPUserActivity.csv</dev:code>
+        <dev:remarks>
+          <maml:para>Retrieve the SharePoint User Activity detail report for the past 30 days and export to a CSV file.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Graph API Report</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/graph/api/resources/report</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365UserLicenseReport</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365UserLicenseReport</command:noun>
+      <maml:description>
+        <maml:para>Get a list of every user and their assigned licenses</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>This report with generate a list of every user and each license assigned to that user for easy export.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365UserLicenseReport</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365UserLicenseReport | Export-Excel -path C:\Reports\MasterReport.xlsx -Worksheetname UserLicenseReport -Tablename UserLicenses</dev:code>
+        <dev:remarks>
+          <maml:para>Export the user licese report to the excel workbook MasterReport.xlsx by piping to Export-Excel</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-M365UserReport</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>M365UserReport</command:noun>
+      <maml:description>
+        <maml:para>Get a summary report for all user accounts in an M365 tenant.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Get a report of all user accounts, including guest accounts. By default, returns the following properties:  UserPrincipalName id AccountEnabled Mail JobTitle PasswordPolicies UserType CreatedDateTime OnPremisesSyncEnabled MobilePhone BusinessPhone OfficeLocation UsageLocation StreetAddress City</maml:para>
+      <maml:para>Add addtional properties to report with -AddProperties.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-M365UserReport</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+          <maml:name>AddProperties</maml:name>
+          <maml:description>
+            <maml:para>Specify additional properties to add to output.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>First</maml:name>
+          <maml:description>
+            <maml:para>Gets only the specified number of objects. Enter the number of objects to get.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IncludeTotalCount</maml:name>
+          <maml:description>
+            <maml:para>Reports the total number of objects in the data set (an integer) followed by the selected objects. If the cmdlet cannot determine the total count, it displays "Unknown total count." The integer has an Accuracy property that indicates the reliability of the total count value. The value of Accuracy ranges from 0.0 to 1.0 where 0.0 means that the cmdlet could not count the objects, 1.0 means that the count is exact, and a value between 0.0 and 1.0 indicates an increasingly reliable estimate.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Skip</maml:name>
+          <maml:description>
+            <maml:para>Ignores the specified number of objects and then gets the remaining objects. Enter the number of objects to skip.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="0" aliases="none">
+        <maml:name>AddProperties</maml:name>
+        <maml:description>
+          <maml:para>Specify additional properties to add to output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>First</maml:name>
+        <maml:description>
+          <maml:para>Gets only the specified number of objects. Enter the number of objects to get.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>IncludeTotalCount</maml:name>
+        <maml:description>
+          <maml:para>Reports the total number of objects in the data set (an integer) followed by the selected objects. If the cmdlet cannot determine the total count, it displays "Unknown total count." The integer has an Accuracy property that indicates the reliability of the total count value. The value of Accuracy ranges from 0.0 to 1.0 where 0.0 means that the cmdlet could not count the objects, 1.0 means that the count is exact, and a value between 0.0 and 1.0 indicates an increasingly reliable estimate.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Skip</maml:name>
+        <maml:description>
+          <maml:para>Ignores the specified number of objects and then gets the remaining objects. Enter the number of objects to skip.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt64</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Get-M365UserReport | Export-Excel -path C:\Reports\MasterReport.xlsx -Worksheetname UserReport -Tablename UserReport</dev:code>
+        <dev:remarks>
+          <maml:para>Export the user report to the excel workbook 'MasterReport.xlsx' on worksheet name 'UserReport'.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Graph API Get-MGUser</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.users/get-mguser</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-M365AdminReportSettings</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>M365AdminReportSettings</command:noun>
+      <maml:description>
+        <maml:para>Set the admin report settings to show names or conceal for privacy</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Set the admin report settings to show names or conceal for privacy. The default value is to conceal names, however you will likely need to show names for your reports.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-M365AdminReportSettings</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ConcealNames</maml:name>
+          <maml:description>
+            <maml:para>Specifying this parameter will conceal names in admin reports.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ShowNames</maml:name>
+          <maml:description>
+            <maml:para>Specifying this parameter will show names in admin reports.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ConcealNames</maml:name>
+        <maml:description>
+          <maml:para>Specifying this parameter will conceal names in admin reports.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ShowNames</maml:name>
+        <maml:description>
+          <maml:para>Specifying this parameter will show names in admin reports.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Set-M365AdminReportSettings -ShowNames</dev:code>
+        <dev:remarks>
+          <maml:para>Update the admin report settings to show names in any admin reports.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Set-M365AdminReportSettings -ConcealNames</dev:code>
+        <dev:remarks>
+          <maml:para>Update the admin report settings to conceal names in any admin reports.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks />
+  </command:command>
+</helpItems>
