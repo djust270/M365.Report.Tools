@@ -41,7 +41,7 @@
 		'Get-M365AdminReportSettings'
 		'Get-M365GroupReport'
 		'Get-M365MailboxReport'
-		'Get-M365MGUserPrincipalMembership'
+		'Get-M365MGUserPrincipalGroupMembership'
 		'Get-M365SSOEnterpriseApps'
 		'Get-M365TeamsChannelReport'
 		'Get-M365TeamsReport'		

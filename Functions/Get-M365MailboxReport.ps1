@@ -67,5 +67,6 @@ catch [System.Management.Automation.CommandNotFoundException]{
         $i++
         }
     }    
-	Return $MailboxDetails
+	$MailboxDetails
+    Write-Warning "Please remember to disconnect from the Exchange Online by using 'Disconnect-ExchangeOnline'"
 }

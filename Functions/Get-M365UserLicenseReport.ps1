@@ -149,6 +149,7 @@ foreach ($user in $Users)
                         })
 					}
 }  
-    return $UserLicenseReport
+    $UserLicenseReport
+    Write-Warning "Please remember to disconnect from the Microsoft Graph by using 'Disconnect-MGGraph'"
 }
 

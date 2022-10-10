@@ -9,5 +9,6 @@ $SSOApps = $Apps | Where-Object { $_.KeyCredentials.Displayname -eq "CN=Microsof
 	name	   = 'SSO Certificate Expiration Date';
 	expression = { $_.keycredentials[0].EndDateTime.ToShortDateString() }
 }
-return $SSOApps
+	$SSOApps
+	Write-Warning "Please remember to disconnect from the Microsoft Graph by using 'Disconnect-MGGraph'"
 }

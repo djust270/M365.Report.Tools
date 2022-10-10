@@ -68,6 +68,7 @@ param (
         $DynamicGroups
         $DistroGroups
     )    
-        Return $AllGroups
+        $AllGroups
+        Write-Warning "Please remember to disconnect from the Microsoft Graph by using 'Disconnect-MGGraph'"
     }
 }

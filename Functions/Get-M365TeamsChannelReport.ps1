@@ -23,5 +23,6 @@ function Get-M365TeamsChannelReport
 		}
         $i++
     }
-    return $TeamsChannelReport
+    $TeamsChannelReport
+    Write-Warning "Please remember to disconnect from the Microsoft Graph by using 'Disconnect-MGGraph'"
 }

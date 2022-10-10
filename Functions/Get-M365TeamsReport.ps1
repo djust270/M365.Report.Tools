@@ -19,5 +19,6 @@ function Get-M365TeamsReport
                 'Members' = $TeamMembers.AdditionalProperties.email -join ' , '
             })
     }
-    return $TeamsReport
+    $TeamsReport
+    Write-Warning "Please remember to disconnect from the Microsoft Graph by using 'Disconnect-MGGraph'"
 }

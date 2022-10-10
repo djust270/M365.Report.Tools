@@ -141,5 +141,6 @@ $TenantLicenseDetails = $Skus | ForEach-Object {
 		FriendlyName = $FriendlyLicenses[$_.SkuPartNumber]
 	}
 }
-return $TenantLicenseDetails
+	$TenantLicenseDetails
+	Write-Warning "Please remember to disconnect from the Microsoft Graph by using 'Disconnect-MGGraph'"
 }

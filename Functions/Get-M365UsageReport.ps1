@@ -93,5 +93,6 @@ function Get-M365UsageReport{
 		throw $_ ; break
 	}
 	Remove-Item $tempfile	
-	return $TeamsReport
+	$TeamsReport
+    Write-Warning "Please remember to disconnect from the Microsoft Graph by using 'Disconnect-MGGraph'"
 }

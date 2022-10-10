@@ -19,8 +19,5 @@ function Get-M365SharePointSiteSummary {
        $Sites = Get-SPOSite -Limit ALL
     }
     $Sites | Select-Object Title, Url, StorageQuota, StorageUsageCurrent, Owner, SharingCapability
-    $Prompt = Read-Host "Would you like to disconnect from SharePoint Online now? (Y/N)"
-    if ($Prompt -like "Y") {
-        Disconnect-SPOService 
-    }
+    Write-Warning "Please remember to disconnect from SharePoint Online by using 'Disconnect-SPOService'"
 }

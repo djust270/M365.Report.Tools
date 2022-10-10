@@ -40,5 +40,6 @@ foreach ($user in $Users)
 	$i++
 }
 
-return $UserReport
+	$UserReport
+	Write-Warning "Please remember to disconnect from the Microsoft Graph by using 'Disconnect-MGGraph'"
 }
