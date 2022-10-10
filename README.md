@@ -6,6 +6,8 @@ To install:
 Install-Module M365.Report.Tools
 ```
 
+[PowerShell Gallery Page](https://www.powershellgallery.com/packages/M365.Report.Tools/1.0)
+
 ## [Get-M365GroupReport](docs/Get-M365GroupReport.md)
 Report of every group including group type and source of authority.
 
