@@ -1,5 +1,5 @@
 # M365.Report.Tools
-A PowerShell Module with tools for gathering data and creating reports on various areas of M365 services. This module is designed with ease of use with several baked in custom reports and the ability to export any built in Admin center usage report. Reports can be easily exported to CSV file or Excel workbook(s).
+A PowerShell Module with tools built for gathering data and creating reports on various areas of M365 services. This module is designed with ease of use with several baked in custom reports and the ability to export any built in Admin center usage report. Reports can be easily exported to CSV file or Excel workbook(s). This module leverages the Microsoft Graph PowerShell SDK, Exchange Online PowerShell, SharePoint Online PowerShell and ImportExcel. 
 
 To install:
 ```powershell
@@ -24,10 +24,10 @@ Summarize all Sharepoint sites including details for each site such as storage u
 Return all AzureAD enterprise applications with SAML SSO integration. 
 
 ## [Get-M365TeamsChannelReport](docs/Get-M365TeamsChannelReport.md)
-Return a list of every channel in each Team. 
+Return a list of every channel in each Team including members. 
 
 ## [Get-M365TeamsReport](docs/Get-M365TeamsReport.md)
-Return a list of all Teams.
+Return a list of all Teams and Team members.
 
 ## [Get-M365TenantLicenseReport](docs/Get-M365TenantLicenseReport.md)
 Return a list of all licenses in a tenant including current utilization.

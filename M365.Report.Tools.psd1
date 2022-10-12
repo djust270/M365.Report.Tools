@@ -4,7 +4,7 @@
 	RootModule = 'M365.Report.Tools.psm1'
 	
 	# Version number of this module.
-	ModuleVersion = '1.0'
+	ModuleVersion = '1.1'
 	
 	# ID used to uniquely identify this module
 	GUID = '3614db23-2205-42bf-bb66-2cb0ab3a4e9e'
