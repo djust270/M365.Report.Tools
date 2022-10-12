@@ -1,5 +1,7 @@
 # M365.Report.Tools
-A PowerShell Module with tools built for gathering data and creating reports on various areas of M365 services. This module is designed with ease of use with several baked in custom reports and the ability to export any built in Admin center usage report. Reports can be easily exported to CSV file or Excel workbook(s). This module leverages the Microsoft Graph PowerShell SDK, Exchange Online PowerShell, SharePoint Online PowerShell and ImportExcel. 
+A PowerShell Module with tools built for gathering data and creating reports on various areas of M365 services. This module is designed with ease of use with several baked in custom reports and the ability to export any built in Admin center usage report. Reports can be easily exported to CSV file or Excel workbook(s). 
+
+This module leverages the Microsoft Graph PowerShell SDK, Exchange Online PowerShell, SharePoint Online PowerShell and ImportExcel. The majority of commands use the Graph SDK and seamlessly handle the permission scope and connection to Graph for you. For more information on working with the Graph SDK see [my article](https://davidjust.com/post/working-with-microsoft-graph-powershell-sdk/).
 
 To install:
 ```powershell
